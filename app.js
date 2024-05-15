@@ -7,6 +7,10 @@ const chart = document.querySelector(".chart");
 const numbers = document.querySelector(".numbers");
 const chart_els = [];
 
+const data_groups_holder = document.querySelector(".data-group");
+const groups = [];
+const all_cursors_el = [];
+
 let first = true;
 
 function print_results(cursors) {
@@ -63,17 +67,51 @@ function get_av_from_sample_date(cursors) {
     return sum / cursors.length;
 }
 
-function handle_av_values(av) {
+function create_cursor_el(cursors) {
+    const cursor_el = document.createElement("p");
+    cursor_el.classList.add("cursor");
+    cursor_el.innerText = `${cursors.map((cursor) => {
+        return sample_data[cursor];
+    }).join(" * ")}`
+
+    return cursor_el;
+}
+
+function handle_av_values(av, cursors) {
     let is_done = false;
     avs.forEach(value => {
         if (value.av === av) { // the av already exists
             value.count++;
             is_done = true;
+
+            const cursor_el = create_cursor_el(cursors);
+            value.el.appendChild(cursor_el);
+
+            all_cursors_el.push(cursor_el);
         }
     });
 
     if (!is_done) {
-        avs.push({av: av, count: 1});
+        const group_el = document.createElement("div");
+        group_el.classList.add("group");
+
+        const group_av_el = document.createElement("div");
+        group_av_el.classList.add("group-title");
+        group_av_el.innerText = `> ${Math.floor(av * 100)/100}`;
+
+        if (Math.floor(av * 100)/100 !== av) {
+            group_av_el.style.setProperty("--hover-value", `' ${av}'`);
+            group_av_el.classList.add("underline");
+        }
+
+        const cursor_el = create_cursor_el(cursors);
+
+        all_cursors_el.push(cursor_el);
+        avs.push({av: av, count: 1, el: group_el});
+
+        group_el.appendChild(group_av_el);
+        group_el.appendChild(cursor_el);
+        data_groups_holder.appendChild(group_el);
     }
 }
 
@@ -148,7 +186,7 @@ function main() {
         handle_cursors(cursors);
 
         const av = get_av_from_sample_date(cursors);
-        handle_av_values(av);
+        handle_av_values(av, cursors);
 
         if (handle_end(cursors)) {
             print_results(cursors);

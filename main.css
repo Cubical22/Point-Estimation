@@ -93,3 +93,25 @@
 .underline {
     text-decoration: underline;
 }
+
+
+.data-group {
+    
+}
+
+.group {
+
+}
+
+.group-title {
+
+}
+
+.cursor {
+
+}
+
+.group-title:hover::after {
+    content: var(--hover-value);
+    color: red;
+}
