@@ -84,8 +84,7 @@ function handle_av_values(av, cursors) {
             is_done = true;
 
             const cursor_el = create_cursor_el(cursors);
-            value.el.appendChild(cursor_el);
-
+            value.el.querySelector(".cursor-holder").appendChild(cursor_el);
         }
     });
 
@@ -104,11 +103,14 @@ function handle_av_values(av, cursors) {
         }
 
         const cursor_el = create_cursor_el(cursors);
+        const cursors_holder_el = document.createElement("div");
+        cursors_holder_el.classList.add("cursor-holder");
 
         avs.push({av: av, count: 1, el: group_el});
 
+        cursors_holder_el.appendChild(cursor_el);
         group_el.appendChild(group_av_el);
-        group_el.appendChild(cursor_el);
+        group_el.appendChild(cursors_holder_el);
         data_groups_holder.appendChild(group_el);
     }
 }

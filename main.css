@@ -1,8 +1,44 @@
+:root {
+    --main-blue: rgb(31 109 155);
+}
+
+body {
+    background: rgb(241, 241, 241);
+}
+
 * {
     margin: 0;
     padding: 0;
     font-family: monospace;
     box-sizing: border-box;
+
+    cursor: default;
+}
+
+.input-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+button {
+    all: unset;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid var(--main-blue);
+
+    cursor: pointer;
+}
+
+.sample-data {
+    margin: 10px;
+
+    font-size: 1.3rem;
+    width: 300px;
+    min-width: 300px;
+    min-height: 50px;
 }
 
 .chart-holder {
@@ -33,7 +69,7 @@
 .chart-value {
     position: relative;
 
-    background-color: rgb(31 109 155);
+    background-color: var(--main-blue);
     width: 30px;
     height: var(--height-set);
 
@@ -98,18 +134,45 @@
 .data-group {
     display: flex;
     flex-direction: column;
+
+    padding: 5px;
+    gap: 5px;
+
+    margin-top: 50px;
 }
 
 .group {
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    flex-direction: column;
+    
+    padding: 10px;
 
+    max-width: 400px;
+
+    border: 1px solid var(--main-blue);
 }
 
 .group-title {
     position: relative;
+    margin: 10px;
+    margin-top: 7px;
+
+    color: white;
+}
+
+.cursor-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .cursor {
+    width: fit-content;
+    padding: 5px 10px;
 
+    background-color: rgb(65, 65, 65);
+    border: 1px solid var(--main-blue);
 }
 
 .hover-text:hover::after {
