@@ -100,8 +100,9 @@ function handle_av_values(av, cursors) {
         group_av_el.innerText = `> ${Math.floor(av * 100)/100}`;
 
         if (Math.floor(av * 100)/100 !== av) {
-            group_av_el.style.setProperty("--hover-value", `' ${av}'`);
+            group_av_el.classList.add("hover-text");
             group_av_el.classList.add("underline");
+            group_av_el.style.setProperty("--hover-value", `' ${av}'`);
         }
 
         const cursor_el = create_cursor_el(cursors);
@@ -139,7 +140,11 @@ function generate_the_display() {
         av.classList.add("av");
         const gotten_value = Math.floor(value.av * 100)/100;
         av.innerText = `${gotten_value}`;
-        if (gotten_value !== value.av) av.classList.add("underline");
+        if (gotten_value !== value.av) {
+            av.classList.add("underline");
+            av.classList.add("hover-text");
+            av.style.setProperty("--hover-value", `' ${value.av}'`);
+        }
 
         div.appendChild(av);
         div.appendChild(percent);

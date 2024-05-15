@@ -104,14 +104,32 @@
 }
 
 .group-title {
-
+    position: relative;
 }
 
 .cursor {
 
 }
 
-.group-title:hover::after {
+.hover-text:hover::after {
     content: var(--hover-value);
-    color: red;
+    background-color: rgb(36, 36, 36);
+    padding: 5px 10px;
+    color: white;
+
+    position: absolute;
+}
+
+.av:hover::after {
+    bottom: -30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.group-title:hover::after {
+    left: 50px;
+    top: 50%;
+
+    transform: translateY(-50%);
 }
