@@ -9,3 +9,6 @@
 - you can also generate random data to test and all, if you are lazy @_@
 - click on the "poles" (chart values) to get teleported to the indexes considered with that average... wooooh, more magic ^-^ lol
 - at last, enjoy! and feel free to give suggestions, and let me know if I missed anything <3 love you all
+
+  
+![A random image](https://github.com/Cubical22/Point-Estimation/blob/master/Sample-Image.png?raw=true)
