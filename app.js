@@ -115,6 +115,10 @@ function handle_av_values(av, cursors) {
 
 function sort_avs() {
     avs.sort((a,b) => a.av - b.av);
+
+    avs.forEach((value, index) => {
+        value.el.style.order = `${index}`;
+    });
 }
 
 function generate_the_display() {

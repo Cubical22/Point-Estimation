@@ -96,7 +96,8 @@
 
 
 .data-group {
-    
+    display: flex;
+    flex-direction: column;
 }
 
 .group {
