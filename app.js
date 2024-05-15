@@ -107,6 +107,7 @@ function handle_av_values(av, cursors) {
         cursors_holder_el.classList.add("cursor-holder");
 
         avs.push({av: av, count: 1, el: group_el});
+        group_el.id = `group-${av}`;
 
         cursors_holder_el.appendChild(cursor_el);
         group_el.appendChild(group_av_el);
@@ -125,13 +126,15 @@ function sort_avs() {
 
 function generate_the_display() {
     avs.forEach((value, index) => {
-        const div = document.createElement("div");
-        div.classList.add(`chart-value-${index}`);
-        div.classList.add("chart-value");
+        const pole = document.createElement("a");
+        pole.classList.add(`chart-value-${index}`);
+        pole.classList.add("chart-value");
+
+        pole.href = `#group-${value.av}`;
 
         const height_value = `${value.count / max_av_count * 300}px`;
-        div.innerHTML = value.count.toString();
-        div.style.setProperty("--height-set", height_value);
+        pole.innerHTML = value.count.toString();
+        pole.style.setProperty("--height-set", height_value);
 
         const percent = document.createElement("div");
         percent.classList.add("percent");
@@ -149,11 +152,11 @@ function generate_the_display() {
             av.style.setProperty("--hover-value", `' ${value.av}'`);
         }
 
-        div.appendChild(av);
-        div.appendChild(percent);
-        chart.appendChild(div);
+        pole.appendChild(av);
+        pole.appendChild(percent);
+        chart.appendChild(pole);
 
-        chart_els.push(div);
+        chart_els.push(pole);
     });
 
     if (first)

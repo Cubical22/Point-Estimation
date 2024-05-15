@@ -80,6 +80,15 @@ button {
     justify-content: center;
 
     animation: chart-value-animation forwards 1.4s;
+    transition: background-color 0.14s ease-in;
+
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.chart-value:hover {
+    background-color: rgb(65, 122, 187);
 }
 
 @keyframes chart-value-animation {
@@ -196,4 +205,27 @@ button {
     top: 50%;
 
     transform: translateY(-50%);
+}
+
+
+
+.top-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+    background-color: rgb(27, 27, 27);
+    width: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50vh;
+
+    border: 1px solid var(--main-blue);
+
+    text-decoration: none;
+    cursor: pointer;
 }
