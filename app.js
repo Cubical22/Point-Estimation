@@ -178,6 +178,11 @@ function reset() {
 }
 
 function main() {
+    if (devision_value > sample_data.length || devision_value <= 0) {
+        alert("dear user :> the devision value (after the '/') must be smaller that the length of sample data you passed! and must be positive too!")
+        return;
+    }
+
     const cursors = new Array(devision_value);
     for (let i = 0; i < devision_value; i++) {
         cursors[i] = i;
