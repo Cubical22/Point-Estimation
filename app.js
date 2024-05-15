@@ -71,7 +71,7 @@ function create_cursor_el(cursors) {
     cursor_el.classList.add("cursor");
     cursor_el.innerText = `${cursors.map((cursor) => {
         return sample_data[cursor];
-    }).join(" * ")}`
+    }).join(" , ")}`
 
     return cursor_el;
 }

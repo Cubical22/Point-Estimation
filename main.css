@@ -42,8 +42,9 @@ button {
 }
 
 .chart-holder {
-    width: 100%;
-    padding: 10px;
+    min-width: 100%;
+    width: fit-content;
+    padding: 40px;
     margin-top: 40px;
 
     max-height: 300px;
@@ -147,7 +148,7 @@ button {
     padding: 5px;
     gap: 5px;
 
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .group {
@@ -182,6 +183,7 @@ button {
 
     background-color: rgb(65, 65, 65);
     border: 1px solid var(--main-blue);
+    color: white;
 }
 
 .hover-text:hover::after {
