@@ -9,7 +9,6 @@ const chart_els = [];
 
 const data_groups_holder = document.querySelector(".data-group");
 const groups = [];
-const all_cursors_el = [];
 
 let first = true;
 
@@ -87,7 +86,6 @@ function handle_av_values(av, cursors) {
             const cursor_el = create_cursor_el(cursors);
             value.el.appendChild(cursor_el);
 
-            all_cursors_el.push(cursor_el);
         }
     });
 
@@ -107,7 +105,6 @@ function handle_av_values(av, cursors) {
 
         const cursor_el = create_cursor_el(cursors);
 
-        all_cursors_el.push(cursor_el);
         avs.push({av: av, count: 1, el: group_el});
 
         group_el.appendChild(group_av_el);
@@ -165,6 +162,9 @@ function generate_the_display() {
 }
 
 function reset() {
+    avs.forEach(value => {
+        data_groups_holder.removeChild(value.el);
+    });
     avs.splice(0,avs.length);
 
     chart_els.forEach(el => {
