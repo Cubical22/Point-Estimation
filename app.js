@@ -87,8 +87,9 @@ function generate_the_display() {
         div.classList.add(`chart-value-${index}`);
         div.classList.add("chart-value");
 
-        div.style.minHeight = `${value.count / max_av_count * 300}px`;
+        const height_value = `${value.count / max_av_count * 300}px`;
         div.innerHTML = value.count.toString();
+        div.style.setProperty("--height-set", height_value);
 
         const percent = document.createElement("div");
         percent.classList.add("percent");

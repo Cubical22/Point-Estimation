@@ -35,12 +35,29 @@
 
     background-color: rgb(31 109 155);
     width: 30px;
+    height: var(--height-set);
 
     display: flex;
     align-items: flex-end;
     padding-bottom: 5px;
     color: white;
     justify-content: center;
+
+    animation: chart-value-animation forwards 1.4s;
+}
+
+@keyframes chart-value-animation {
+    0% {
+        height: 0;
+    }
+    
+    50% {
+        height: 150px;
+    }
+
+    100% {
+        height: var(--height-set);
+    }
 }
 
 .numbers {
